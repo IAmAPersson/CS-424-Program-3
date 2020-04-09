@@ -2,6 +2,8 @@
    4/8/2020
    CS 424 Program 3
    Tested with SWI-Prolog v7.6.4
+   
+   This code is entirely my own.
 */
 
 male(phil).
