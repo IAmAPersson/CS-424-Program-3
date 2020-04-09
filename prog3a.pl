@@ -9,10 +9,7 @@ sumList([], 0).
 sumList([X|Tail], Z) :- sumList(Tail, Y), Z is X + Y.
 
 %isIn(A, B) === A is in the list B
-isIn(X, [A|Tail]) :- A is X; isIn(X, Tail).
-
-%intersection(A, B, X) === the intersection of A and B is X
-intersection(A, B, X) :- findall(T, (isIn(T, A), isIn(T, B)), X).
+isIn(X, [A|Tail]) :- X is A; isIn(X, Tail).
 
 %disjoint(A, B) === A and B are disjoint
-disjoint(A, B) :- intersection(A, B, C), C == [].
+disjoint(A, B) :- not((isIn(T, A), isIn(T, B))).
