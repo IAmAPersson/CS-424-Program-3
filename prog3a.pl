@@ -7,6 +7,6 @@
 sumList([], 0).
 sumList([X|Tail], Z) :- sumList(Tail, Y), Z is X + Y.
 
-isIn(X, [A|Tail]) :- X is A; isIn(X, Tail).
-intersection(A, B, X) :- ((isIn(T, A), isIn(T, B)) -> isIn(T, X)).
+isIn(X, [A|Tail]) :- A is X; isIn(X, Tail).
+intersection(A, B, X) :- (isIn(T, A), isIn(T, B) -> isIn(T, X).). %I have no idea how this works, but it does (at least on the version listed at the top of this file)
 disjoint(A, B) :- intersection(A, B, C), not(isIn(X, C)).
